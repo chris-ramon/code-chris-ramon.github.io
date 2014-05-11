@@ -5,9 +5,12 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'ui.bootstrap'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $tooltipProvider) {
+    $tooltipProvider.setTriggers({'openPopover': 'closePopover'});
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
