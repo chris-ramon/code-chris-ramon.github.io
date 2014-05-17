@@ -6,12 +6,11 @@ angular.module('extendingAngularUiTypeaheadApp')
       restrict: 'A',
       require: ['typeahead', 'ngModel'],
       link: function(scope, elm, attrs, ctrls) {
-        var popoverSelector = '#' + attrs.id;
         scope.$watch(attrs.ngModel, function(newVal) {
           if(!foundMatches() && newVal)
-            $timeout(function() { $(popoverSelector).trigger('openPopover'); });
+            $timeout(function() { $(elm).trigger('openPopover'); });
           else
-            $timeout(function() { $(popoverSelector).trigger('closePopover'); });
+            $timeout(function() { $(elm).trigger('closePopover'); });
         });
 
         function foundMatches() {
